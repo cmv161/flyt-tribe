@@ -1,31 +1,24 @@
-# shadcn/ui monorepo template
+# FlytTribe Monorepo (pnpm + Turbo)
 
-This template is for creating a monorepo with shadcn/ui.
+Packages
 
-## Usage
+- `apps/web` — Next.js App Router client
+- `packages/api` — tRPC routers/types
+- `packages/db` — Drizzle ORM schema + migrations
+- `packages/ui` — shared UI kit (Tailwind/shadcn)
+- `packages/worker` — BullMQ worker
+- `infra/` — docker-compose for Postgres/Redis
 
-```bash
-pnpm dlx shadcn@latest init
-```
+Getting started
 
-## Adding components
+1. Install deps: `corepack enable && pnpm install`
+2. Start infra: `docker compose -f infra/docker-compose.yml up -d`
+3. Configure env: copy `.env.example` -> `.env` (and `apps/web/.env.example` -> `.env.local` if needed)
+4. Prepare DB: `pnpm db:push`
+5. Dev: `pnpm dev` (runs via Turbo)
 
-To add components to your app, run the following command at the root of your `web` app:
+Scripts (root)
 
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
-```
-
-This will place the ui components in the `packages/ui/src/components` directory.
-
-## Tailwind
-
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/button"
-```
+- `pnpm lint` / `pnpm typecheck` / `pnpm test`
+- `pnpm format:check`
+- `pnpm db:generate|push|migrate|studio`

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@workspace/ui"],
-}
+  transpilePackages: ["@flyt-tribe/ui"],
+};
 
-export default nextConfig
+export default nextConfig;

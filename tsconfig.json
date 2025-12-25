@@ -1,4 +1,3 @@
 {
-  "extends": "@workspace/typescript-config/base.json"
+  "extends": "@flyt-tribe/typescript-config/base.json"
 }
-

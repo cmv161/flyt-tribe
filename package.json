@@ -6,14 +6,28 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint:fix": "turbo lint -- --fix",
+    "lint:fix:nocache": "turbo lint --no-cache -- --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:generate": "pnpm --filter @flyt-tribe/db db:generate",
+    "db:push": "pnpm --filter @flyt-tribe/db db:push",
+    "db:migrate": "pnpm --filter @flyt-tribe/db db:migrate",
+    "db:studio": "pnpm --filter @flyt-tribe/db db:studio",
+    "test": "turbo test",
+    "test:watch": "turbo test:watch",
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@flyt-tribe/eslint-config": "workspace:*",
+    "@flyt-tribe/typescript-config": "workspace:*",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^9.1.2",
     "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "turbo": "^2.6.3",
-    "typescript": "5.7.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.16"
   },
   "packageManager": "pnpm@10.4.1",
   "engines": {

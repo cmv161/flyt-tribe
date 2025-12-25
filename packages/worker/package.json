@@ -1,0 +1,29 @@
+{
+  "name": "@flyt-tribe/worker",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pnpm -w vitest run",
+    "test:watch": "pnpm -w vitest --watch",
+    "lint": "pnpm exec eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
+  "dependencies": {
+    "bullmq": "^5.66.2",
+    "dotenv": "^17.2.3",
+    "ioredis": "^5.8.2"
+  },
+  "devDependencies": {
+    "@flyt-tribe/eslint-config": "workspace:*",
+    "@flyt-tribe/typescript-config": "workspace:*",
+    "eslint": "^9.39.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
