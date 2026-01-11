@@ -1,0 +1,15 @@
+@layer theme, base, tokens, components, utilities;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./base.css" layer(base);
+@import "./themes/light.css" layer(theme);
+@import "./themes/dark.css" layer(theme);
+@import "./tokens.css" layer(tokens);
+@import "./utilities.css" layer(utilities);
+
+@source "../../../../apps/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));

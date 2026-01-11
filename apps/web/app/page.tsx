@@ -1,4 +1,4 @@
-import { Button } from "@flyt-tribe/ui/components/button";
+import { Button } from "@flyt-tribe/ui/components";
 
 export default function Page() {
   return (

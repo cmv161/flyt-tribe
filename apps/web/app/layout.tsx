@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 
-import "@flyt-tribe/ui/globals.css";
+import "@flyt-tribe/ui/styles.css";
 import { Providers } from "@/app/providers";
 
 const fontSans = Geist({
