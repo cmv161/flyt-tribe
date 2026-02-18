@@ -13,8 +13,11 @@
   "aliases": {
     "components": "@flyt-tribe/ui/components",
     "utils": "@flyt-tribe/ui/lib/utils",
-    "hooks": "@flyt-tribe/ui/hooks",
+    "ui": "@flyt-tribe/ui/components",
     "lib": "@flyt-tribe/ui/lib",
-    "ui": "@flyt-tribe/ui/components"
+    "hooks": "@flyt-tribe/ui/hooks"
+  },
+  "registries": {
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
   }
 }
