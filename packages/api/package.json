@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "scripts": {
     "test": "pnpm -w vitest run",
     "test:watch": "pnpm -w vitest --watch",
@@ -15,6 +18,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
+    "@flyt-tribe/auth": "workspace:*",
+    "@flyt-tribe/db": "workspace:*",
     "@trpc/server": "^11.8.1",
     "superjson": "^2.2.6",
     "zod": "^3.25.76"
