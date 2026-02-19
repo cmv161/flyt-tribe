@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1771493494758,
+      "tag": "0000_same_darwin",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1771501555049,
+      "tag": "0001_early_wasp",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1771504855424,
+      "tag": "0002_amused_meltdown",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1771506070093,
+      "tag": "0003_cultured_donald_blake",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1771509520533,
+      "tag": "0004_mighty_vampiro",
+      "breakpoints": true
+    }
+  ]
+}

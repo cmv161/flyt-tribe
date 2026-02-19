@@ -1,0 +1,2 @@
+ALTER TABLE "users" ADD CONSTRAINT "users_role_check" CHECK ("users"."role" IN ('user', 'admin'));--> statement-breakpoint
+ALTER TABLE "users" ADD CONSTRAINT "users_scopes_check" CHECK (cardinality("users"."scopes") = 0 OR array_to_string("users"."scopes", ',') ~ '^([a-z][a-z0-9-]*:[a-z0-9*.-]+)(,[a-z][a-z0-9-]*:[a-z0-9*.-]+)*$');
