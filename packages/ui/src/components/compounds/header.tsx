@@ -1,6 +1,6 @@
 "use client";
 
-import { type ComponentType, type HTMLAttributes, useEffect, useState } from "react";
+import { type HTMLAttributes, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 import { MoonIcon, SunMediumIcon } from "@flyt-tribe/ui/components/icons";
@@ -10,19 +10,19 @@ import { cn } from "@flyt-tribe/ui/lib/utils";
 type HeaderProps = HTMLAttributes<HTMLElement> & {
   brand: string;
   fixed?: boolean;
+  loginLabel?: string;
+  onLoginClick?: () => void;
 };
 type ThemeOption = "light" | "dark";
 
-const THEMES: Array<{
-  label: string;
-  value: ThemeOption;
-  icon: ComponentType<{ className?: string; size?: number }>;
-}> = [
-  { label: "Light", value: "light", icon: SunMediumIcon },
-  { label: "Dark", value: "dark", icon: MoonIcon },
-];
-
-export function Header({ className, brand, fixed = false, ...props }: HeaderProps) {
+export function Header({
+  className,
+  brand,
+  fixed = false,
+  loginLabel = "Sign in",
+  onLoginClick,
+  ...props
+}: HeaderProps) {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -31,6 +31,10 @@ export function Header({ className, brand, fixed = false, ...props }: HeaderProp
   }, []);
 
   const activeTheme: ThemeOption = mounted && resolvedTheme === "dark" ? "dark" : "light";
+  const isDarkTheme = activeTheme === "dark";
+  const nextTheme: ThemeOption = isDarkTheme ? "light" : "dark";
+  const ThemeIcon = isDarkTheme ? SunMediumIcon : MoonIcon;
+  const themeToggleLabel = isDarkTheme ? "Switch to light theme" : "Switch to dark theme";
 
   return (
     <header
@@ -41,31 +45,27 @@ export function Header({ className, brand, fixed = false, ...props }: HeaderProp
         <p className="text-foreground/90 text-sm font-semibold tracking-[0.22em] uppercase">
           {brand}
         </p>
-        <div className="border-border/60 bg-background/60 supports-[backdrop-filter]:bg-background/50 flex items-center gap-1 rounded-full border p-1 backdrop-blur-sm">
-          {THEMES.map(({ label, value, icon: Icon }) => {
-            const isActive = activeTheme === value;
-
-            return (
-              <Button
-                key={value}
-                type="button"
-                size="icon"
-                variant={isActive ? "secondary" : "ghost"}
-                className={cn(
-                  "size-8 rounded-full",
-                  !isActive && "text-muted-foreground hover:text-foreground",
-                )}
-                onClick={() => setTheme(value)}
-                aria-label={`${label} theme`}
-                aria-pressed={isActive}
-              >
-                <Icon
-                  size={16}
-                  className={cn("grid place-items-center", !isActive && "opacity-85")}
-                />
-              </Button>
-            );
-          })}
+        <div className="border-border/60 bg-background/60 supports-[backdrop-filter]:bg-background/50 flex translate-y-0.5 items-center gap-1 rounded-full border p-1 backdrop-blur-sm">
+          <Button
+            type="button"
+            variant="ghost"
+            className="text-foreground/90 hover:bg-foreground/10 h-9 rounded-full px-4 text-sm font-medium"
+            onClick={onLoginClick}
+          >
+            {loginLabel}
+          </Button>
+          <span className="bg-border/45 mx-0.5 h-4 w-px" aria-hidden />
+          <Button
+            type="button"
+            size="icon"
+            variant="ghost"
+            className="text-muted-foreground hover:text-foreground size-9 rounded-full"
+            onClick={() => setTheme(nextTheme)}
+            aria-label={themeToggleLabel}
+            title={themeToggleLabel}
+          >
+            <ThemeIcon size={16} className="grid place-items-center" />
+          </Button>
         </div>
       </div>
     </header>

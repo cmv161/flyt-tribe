@@ -3,7 +3,7 @@ import { AuroraBackground, Button, Header } from "@flyt-tribe/ui/components";
 export default function Page() {
   return (
     <AuroraBackground className="h-svh">
-      <Header brand="Flyt Tribe" fixed />
+      <Header brand="Flyt Tribe" fixed loginLabel="Sign in" />
       <div className="relative z-10 flex flex-col items-center gap-4 px-4 pt-16 text-center">
         <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl">
           Flyt Tribe UI
